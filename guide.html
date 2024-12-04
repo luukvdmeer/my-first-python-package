@@ -90,9 +90,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#write-a-function" id="toc-write-a-function" class="nav-link" data-scroll-target="#write-a-function">2. Write a function</a></li>
   <li><a href="#document-your-function" id="toc-document-your-function" class="nav-link" data-scroll-target="#document-your-function">3. Document your function</a></li>
   <li><a href="#add-a-license" id="toc-add-a-license" class="nav-link" data-scroll-target="#add-a-license">4. Add a license</a></li>
-  <li><a href="#install-your-package" id="toc-install-your-package" class="nav-link" data-scroll-target="#install-your-package">6. Install your package</a></li>
-  <li><a href="#release-your-package" id="toc-release-your-package" class="nav-link" data-scroll-target="#release-your-package">7. Release your package</a></li>
-  <li><a href="#additional-tasks" id="toc-additional-tasks" class="nav-link" data-scroll-target="#additional-tasks">8. Additional tasks</a></li>
+  <li><a href="#install-your-package" id="toc-install-your-package" class="nav-link" data-scroll-target="#install-your-package">5. Install your package</a></li>
+  <li><a href="#release-your-package" id="toc-release-your-package" class="nav-link" data-scroll-target="#release-your-package">6. Release your package</a></li>
+  <li><a href="#additional-tasks" id="toc-additional-tasks" class="nav-link" data-scroll-target="#additional-tasks">7. Additional tasks</a></li>
   </ul></li>
   <li><a href="#install-others-packages" id="toc-install-others-packages" class="nav-link" data-scroll-target="#install-others-packages">Install other’s packages</a></li>
   </ul>
@@ -227,7 +227,7 @@ Warning
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello(name <span class="op">=</span> <span class="st">"world"</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Hello "</span>, name, <span class="st">"! Welcome to my first Python package!"</span>, sep <span class="op">=</span> <span class="st">""</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Save this file as <code>hello.py</code> inside the package folder you created in the previous step.</p>
+<p>Save this file as <code>hello.py</code> inside the package folder you created in the previous step. Such a file inside our package that contains one or more functions, we use to call a “module” in Python.</p>
 <p>Now, in your <code>__init__.py</code> file, add the following line:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hello <span class="im">import</span> hello</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will make sure that anyone using your package can directly call the <code>hello()</code> function, without having to specify in which module (in our case, <code>hello.py</code>) it is located. Hence, they can run:</p>
@@ -338,21 +338,21 @@ Warning
 </div>
 </section>
 <section id="install-your-package" class="level3">
-<h3 class="anchored" data-anchor-id="install-your-package">6. Install your package</h3>
+<h3 class="anchored" data-anchor-id="install-your-package">5. Install your package</h3>
 <p>Now you can install your own package with <code>pip</code>, and use it locally as with any other package! By adding the <code>-e</code> flag, you install in “editable mode”, meaning that if you make changes to your code, you do not have to re-install to use your updated functions.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="release-your-package" class="level3">
-<h3 class="anchored" data-anchor-id="release-your-package">7. Release your package</h3>
+<h3 class="anchored" data-anchor-id="release-your-package">6. Release your package</h3>
 <p>The time is there: release your package on GitHub. If you have committed all changes at every step already, the only thing left to do it run the following line in the <em>Terminal</em>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will push all committed work to the main branch of your GitHub repository. Now other people can install your package from there using <code>pip</code>. Done!</p>
 </section>
 <section id="additional-tasks" class="level3">
-<h3 class="anchored" data-anchor-id="additional-tasks">8. Additional tasks</h3>
+<h3 class="anchored" data-anchor-id="additional-tasks">7. Additional tasks</h3>
 <p>Too easy for you? Here are some additional tasks to make your package better.</p>
 <section id="add-dependencies" class="level4">
-<h4 class="anchored" data-anchor-id="add-dependencies">8.1 Add dependencies</h4>
+<h4 class="anchored" data-anchor-id="add-dependencies">7.1 Add dependencies</h4>
 <p>The first <code>hello()</code> function was so simple that we did not need to depend on any other Python package. But now, you want to spice up your package and include emoticons in your greeting. This can be done using the <a href="https://pypi.org/project/emoji/">emoji</a> package.</p>
 <p>In the <code>requirements.txt</code> file, you need to specify that your package depends on the <code>emoji</code> package by adding an line as follows. This will also install the dependency when installing your package.</p>
 <pre><code>- emoji</code></pre>
@@ -369,7 +369,7 @@ Warning
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="write-unit-tests" class="level4">
-<h4 class="anchored" data-anchor-id="write-unit-tests">8.2 Write unit tests</h4>
+<h4 class="anchored" data-anchor-id="write-unit-tests">7.2 Write unit tests</h4>
 <p>It is good practice to write formal tests for your code, to make sure it behaves as expected in every possible situation. The best way to find bugs it too write many small tests, which each test a small unit of your code. This is called <em>unit testing</em>. The Python package <code>unittest</code> makes it much easier to do this.</p>
 <p>Set up the test structure by adding a new folder to your root directory, which you name <code>tests</code>. Inside that folder, create again an empty <code>__init__.py</code> file. Then, create another script to test your function, which you could name <code>test_hello.py</code>.</p>
 <p>In that script, import your own package and <code>unittest</code>, and write a simple test for the <code>hello()</code> function, using the functions supplied by <code>unittest</code>. An example could be that you test if the output of the <code>hello()</code> function is indeed a string. Each test is always written as a method of a test class, as shown below.</p>
@@ -385,7 +385,7 @@ Warning
 <p>See <a href="https://realpython.com/python-unittest/#running-tests">here</a> for more information on testing for Python packages.</p>
 </section>
 <section id="use-github-actions" class="level4">
-<h4 class="anchored" data-anchor-id="use-github-actions">8.3 Use GitHub Actions</h4>
+<h4 class="anchored" data-anchor-id="use-github-actions">7.3 Use GitHub Actions</h4>
 <p>Before pushing to GitHub, you should always run the package tests. Instead of doing this yourself (and remembering to do it..), you can also automate this process using GitHub Actions. By adding a specific GitHub Actions workflow to your repository, this will trigger the tests whenever you push your work to GitHub.</p>
 <p>To enable this, create a new folder named <code>.github</code>. Inside it, create again a new folder named <code>workflows</code>. Inside that folder, create a file which you can name <code>unittest.yml</code>. The following content should be enough for the most simple test workflow:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>name<span class="sc">:</span> Tests</span>
@@ -408,19 +408,19 @@ Warning
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        python <span class="sc">-</span>m unittest discover</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="write-user-guides" class="level4">
-<h4 class="anchored" data-anchor-id="write-user-guides">8.4 Write user guides</h4>
+<h4 class="anchored" data-anchor-id="write-user-guides">7.4 Write user guides</h4>
 <p>Function documentation is very brief and formal. To explain more details of the package, or to present actual use-cases, you often want to write more readable, extensive documentation in the form of user guides. Where in R, there is a standardized way of doing this through package “vignettes”, in Pyhton, there is less clarity.</p>
 <p>What I normally do is to create a folder that I name <code>demo</code>, and fill it with Jupyter Notebooks that showcase the package usage by combining text with Python code. Find <a href="https://realpython.com/jupyter-notebook-introduction/">here</a> and introduction to Jupyter notebooks, if you are not yet familiar with them.</p>
 </section>
 <section id="create-a-package-website" class="level4">
-<h4 class="anchored" data-anchor-id="create-a-package-website">8.5 Create a package website</h4>
+<h4 class="anchored" data-anchor-id="create-a-package-website">7.5 Create a package website</h4>
 <p>In the meantime you created a lot of package documentation and metadata. For users, it is great if they can easily read all of this on a dedicated package website. This sounds like a lot of work, and unfortunately, in Python this is indeed quite a hassle. The <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx project</a> has made it at least a bit easier to get started.</p>
-<p>First, create a new folder which you can name <code>docs</code>. Inside it, create a file that you name <code>README.rst</code>. The <code>.rst</code> extension stands for re-structured text. This is similar to Markdown, but a bit different. You could add the following content as a start:</p>
+<p>First, in the root directory create a file that you name <code>README.rst</code>. The <code>.rst</code> extension stands for re-structured text. This is similar to Markdown, but a bit different. You could add the following content as a start:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode rst code-with-copy"><code class="sourceCode rest"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>My first Python package</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>========================</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>This is my first Python package!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then from the command line, run the following command. This will make you answer some questions, and set up the basic structure for the website.</p>
+<p>Then from the command line, run the following command. This will make you answer some questions (usually, answer yes), and set up the basic structure for the website in a directory named <code>docs</code>.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sphinx-quickstart</span> docs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Build and preview your website locally as follows. Afterwards, you can open it in your browser through the file <code>docs/build/html/index.html</code>.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sphinx-build</span> <span class="at">-M</span> html docs/source/ docs/build/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

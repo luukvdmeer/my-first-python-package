@@ -95,7 +95,7 @@ There are three things we need to do at this point to finalize our setup:
 - To finalize our setup, we need to fill some fields in the `setup.py` file. In the `name` field, give your package a name that is different from `my-first-python-package`. I suggest that for this toy package you use your first name followed by "py", in my case `luukpy`. In the `description` field, write a one line description of your package. In the `author` field, declare yourself the author of the package, and in the `author_email` field, add your email (you can omit this also). Leave the `license` field untouched for now, we will talk about licenses later.
 - Create a folder in which your actual Python code will live. Give this folder the same name as your package name.
 - Inside this folder, save an empty Python script that you name `__init__.py`. This file is required for each Python package, and is executed whenever someone imports your package. For now, it can be empty.
-                                                                                 
+
 ::: {.callout-warning}
 Don't forget to commit your changes to git!
 :::
@@ -110,7 +110,7 @@ def hello(name = "world"):
 }
 ```
 
-Save this file as `hello.py` inside the package folder you created in the previous step.
+Save this file as `hello.py` inside the package folder you created in the previous step. Such a file inside our package that contains one or more functions, we use to call a "module" in Python.
 
 Now, in your `__init__.py` file, add the following line:
 
@@ -210,7 +210,7 @@ limitations under the License.
 Don't forget to commit your changes to git!
 :::
 
-### 6. Install your package
+### 5. Install your package
 
 Now you can install your own package with `pip`, and use it locally as with any other package! By adding the `-e` flag, you install in "editable mode", meaning that if you make changes to your code, you do not have to re-install to use your updated functions.
 
@@ -218,7 +218,7 @@ Now you can install your own package with `pip`, and use it locally as with any 
 pip install -e .
 ```
 
-### 7. Release your package
+### 6. Release your package
 
 The time is there: release your package on GitHub. If you have committed all changes at every step already, the only thing left to do it run the following line in the *Terminal*:
 
@@ -228,11 +228,11 @@ git push origin main
 
 This will push all committed work to the main branch of your GitHub repository. Now other people can install your package from there using `pip`. Done!
 
-### 8. Additional tasks
+### 7. Additional tasks
 
 Too easy for you? Here are some additional tasks to make your package better.
 
-#### 8.1 Add dependencies
+#### 7.1 Add dependencies
 
 The first `hello()` function was so simple that we did not need to depend on any other Python package. But now, you want to spice up your package and include emoticons in your greeting. This can be done using the [emoji](https://pypi.org/project/emoji/) package.
 
@@ -257,7 +257,7 @@ def hello(name = "world"):
   )
 ```
 
-#### 8.2 Write unit tests
+#### 7.2 Write unit tests
 
 It is good practice to write formal tests for your code, to make sure it behaves as expected in every possible situation. The best way to find bugs it too write many small tests, which each test a small unit of your code. This is called *unit testing*. The Python package `unittest` makes it much easier to do this.
 
@@ -283,7 +283,7 @@ python -m unittest discover
 
 See [here](https://realpython.com/python-unittest/#running-tests) for more information on testing for Python packages.
 
-#### 8.3 Use GitHub Actions
+#### 7.3 Use GitHub Actions
 
 Before pushing to GitHub, you should always run the package tests. Instead of doing this yourself (and remembering to do it..), you can also automate this process using GitHub Actions. By adding a specific GitHub Actions workflow to your repository, this will trigger the tests whenever you push your work to GitHub.
 
@@ -310,13 +310,13 @@ jobs:
         python -m unittest discover
 ```
 
-#### 8.4 Write user guides
+#### 7.4 Write user guides
 
 Function documentation is very brief and formal. To explain more details of the package, or to present actual use-cases, you often want to write more readable, extensive documentation in the form of user guides. Where in R, there is a standardized way of doing this through package "vignettes", in Pyhton, there is less clarity.
 
 What I normally do is to create a folder that I name `demo`, and fill it with Jupyter Notebooks that showcase the package usage by combining text with Python code. Find [here](https://realpython.com/jupyter-notebook-introduction/) and introduction to Jupyter notebooks, if you are not yet familiar with them.
 
-#### 8.5 Create a package website
+#### 7.5 Create a package website
 
 In the meantime you created a lot of package documentation and metadata. For users, it is great if they can easily read all of this on a dedicated package website. This sounds like a lot of work, and unfortunately, in Python this is indeed quite a hassle. The [Sphinx project](https://www.sphinx-doc.org/en/master/index.html) has made it at least a bit easier to get started. 
 
