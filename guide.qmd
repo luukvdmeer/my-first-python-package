@@ -237,7 +237,7 @@ The first `hello()` function was so simple that we did not need to depend on any
 In the `requirements.txt` file, you need to specify that your package depends on the `emoji` package by adding an line as follows. This will also install the dependency when installing your package.
 
 ```
-- emoji
+emoji
 ```
 
 Now, in our `hello.py` module we can import the `emoji` package, and use its functions.
@@ -261,7 +261,7 @@ It is good practice to write formal tests for your code, to make sure it behaves
 
 Set up the test structure by adding a new folder to your root directory, which you name `tests`. Inside that folder, create again an empty `__init__.py` file. Then, create another script to test your function, which you could name `test_hello.py`.
 
-In that script, import your own package and `unittest`, and write a simple test for the `hello()` function, using the functions supplied by `unittest`. An example could be that you test if the output of the `hello()` function is indeed a string. Each test is always written as a method of a test class, as shown below.
+In that script, import your own package and `unittest`, and write a simple test for the `hello()` function, using the functions supplied by `unittest`. An example could be that you test if the `hello()` function indeed does not return any object (it only prints something!). Each test is always written as a method of a test class, as shown below.
 
 ```python
 import yourpackage
@@ -270,7 +270,7 @@ import unittest
 class TestHello(unittest.TestCase):
 
   def test_hello(self):
-    self.assertIsInstance(yourpackage.hello(), str)
+    self.assertIsNone(yourpackage.hello())
 ```
 
 One way to run all your tests, is by running the following in your command line (given that you are in the directory of your package):

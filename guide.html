@@ -353,7 +353,7 @@ Warning
 <h4 class="anchored" data-anchor-id="add-dependencies">7.1 Add dependencies</h4>
 <p>The first <code>hello()</code> function was so simple that we did not need to depend on any other Python package. But now, you want to spice up your package and include emoticons in your greeting. This can be done using the <a href="https://pypi.org/project/emoji/">emoji</a> package.</p>
 <p>In the <code>requirements.txt</code> file, you need to specify that your package depends on the <code>emoji</code> package by adding an line as follows. This will also install the dependency when installing your package.</p>
-<pre><code>- emoji</code></pre>
+<pre><code>emoji</code></pre>
 <p>Now, in our <code>hello.py</code> module we can import the <code>emoji</code> package, and use its functions.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> emoji <span class="im">import</span> emojize</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -370,14 +370,14 @@ Warning
 <h4 class="anchored" data-anchor-id="write-unit-tests">7.2 Write unit tests</h4>
 <p>It is good practice to write formal tests for your code, to make sure it behaves as expected in every possible situation. The best way to find bugs it too write many small tests, which each test a small unit of your code. This is called <em>unit testing</em>. The Python package <code>unittest</code> makes it much easier to do this.</p>
 <p>Set up the test structure by adding a new folder to your root directory, which you name <code>tests</code>. Inside that folder, create again an empty <code>__init__.py</code> file. Then, create another script to test your function, which you could name <code>test_hello.py</code>.</p>
-<p>In that script, import your own package and <code>unittest</code>, and write a simple test for the <code>hello()</code> function, using the functions supplied by <code>unittest</code>. An example could be that you test if the output of the <code>hello()</code> function is indeed a string. Each test is always written as a method of a test class, as shown below.</p>
+<p>In that script, import your own package and <code>unittest</code>, and write a simple test for the <code>hello()</code> function, using the functions supplied by <code>unittest</code>. An example could be that you test if the <code>hello()</code> function indeed does not return any object (it only prints something!). Each test is always written as a method of a test class, as shown below.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yourpackage</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> unittest</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TestHello(unittest.TestCase):</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> test_hello(<span class="va">self</span>):</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.assertIsInstance(yourpackage.hello(), <span class="bu">str</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.assertIsNone(yourpackage.hello())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>One way to run all your tests, is by running the following in your command line (given that you are in the directory of your package):</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> unittest discover</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>See <a href="https://realpython.com/python-unittest/#running-tests">here</a> for more information on testing for Python packages.</p>
