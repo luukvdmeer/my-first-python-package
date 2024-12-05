@@ -13,7 +13,7 @@ except FileNotFoundError:
 # Metadata
 setup(
   name = "Type here the name of your package",
-  version = 0.0.0.9000,
+  version = "0.0.0.9000",
   author = "Type here your name",
   author_email = "Type here your email",
   description = "Describe here your package in one sentence",
