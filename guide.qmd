@@ -114,7 +114,7 @@ Save this file as `hello.py` inside the package folder you created in the previo
 Now, in your `__init__.py` file, add the following line:
 
 ```python
-from hello import hello
+from yourpackage.hello import hello
 ```
 
 This will make sure that anyone using your package can directly call the `hello()` function, without having to specify in which module (in our case, `hello.py`) it is located. Hence, they can run:
