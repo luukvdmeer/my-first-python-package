@@ -107,7 +107,6 @@ Time to write a function. Open a new, blank Python script. Your first function c
 ```python
 def hello(name = "world"):
   print("Hello ", name, "! Welcome to my first Python package!", sep = "")
-}
 ```
 
 Save this file as `hello.py` inside the package folder you created in the previous step. Such a file inside our package that contains one or more functions, we use to call a "module" in Python.
@@ -161,7 +160,6 @@ def hello(name = "world"):
   >>> Give here an example of how to use the function.
   """
   print("Hello ", name, "! Welcome to my first Python package!", sep = "")
-}
 ```
 
 ::: {.callout-note}
